@@ -1,9 +1,11 @@
+import streamlit as st
 import pandas as pd
-import pickle
-from sklearn.model_selection import train_test_split
+import joblib  # Changed from pickle
 
-with open("salary_best_model.pkl", "wb") as f:
-    pickle.dump(model, f)
+# Load the trained model
+model = joblib.load("salary_best_model.pkl")
+
+# ... rest of your code stays the same
 st.title("Employee Salary Prediction App")
 st.write("Fill the details below to predict employee salary.")
 
@@ -29,6 +31,7 @@ input_data = pd.DataFrame({
 if st.button("Predict Salary"):
     prediction = model.predict(input_data)
     st.success(f"Predicted Salary: ₹ {round(prediction[0], 2)}")
+
 
 
 
