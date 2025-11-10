@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 import os
-model_path = os.path.join(os.path.dirname(_file_), "salary_best_model.pkl")
+model_path = os.path.join(os.path.dirname(app.py), "salary_best_model.pkl")
 model = pickle.load(open(model_path, "rb"))
 
 st.title("Employee Salary Prediction")
@@ -31,5 +31,6 @@ input_data = pd.DataFrame({
 if st.button("Predict Salary"):
     prediction = model.predict(input_data)
     st.success(f"Predicted Salary: ₹ {round(prediction[0], 2)}")
+
 
 
