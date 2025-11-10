@@ -5,7 +5,7 @@ import pickle
 # Load trained model
 model = pickle.load(open("salary_best_model.pkl", "rb"))
 
-st.title("Employee Salary Prediction App")
+st.title("Employee Salary Prediction")
 
 st.write("Fill the details below to predict employee salary.")
 
@@ -31,3 +31,4 @@ input_data = pd.DataFrame({
 if st.button("Predict Salary"):
     prediction = model.predict(input_data)
     st.success(f"Predicted Salary: ₹ {round(prediction[0], 2)}")
+
