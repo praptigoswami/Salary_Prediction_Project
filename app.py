@@ -5,7 +5,7 @@ import joblib
 # Load Model
 model = joblib.load("salary_best_model.pkl")
 
-st.title("Employee Salary Prediction App")
+st.title("💰Employee Salary Prediction App")
 st.write("Fill the details below to predict employee salary.")
 
 # Input Fields (matching training data)
@@ -35,3 +35,4 @@ if hasattr(model, "feature_names_in_"):
 if st.button("Predict Salary"):
     prediction = model.predict(input_data)[0]
     st.success(f"Predicted Salary: ₹ {round(prediction, 2)}")
+
